@@ -10,7 +10,7 @@ import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
-import { BLOCKS } from '@contentful/rich-text-types'
+import { BLOCKS, Document } from '@contentful/rich-text-types'
 import { embeddedEntry } from './utils/embeddedEntry'
 
 export const CheerfulContext = createContext({})
@@ -30,7 +30,7 @@ export function useCheerfulComponents(components: any) {
 
 const emptyObject = {}
 
-interface ICheerfulProvider {
+export interface ICheerfulProvider {
   components?: unknown
   children?: ReactNode | ReactNode[]
   disableParentContext?: boolean
@@ -65,12 +65,12 @@ export function CheerfulProvider({
       //TODO make the proper checks
       return child?.props.children.map((item) => {
         if (item.length) {
-          return item.map(({ fields: { content } }) =>
-            documentToReactComponents(content, options)
+          return item.map(
+            ({ fields: { content } }: { fields: { content: Document } }) =>
+              documentToReactComponents(content, options)
           )
-        } else {
-          return createElement(item?.type, item?.props, item?.props.children)
         }
+        return createElement(item?.type, item?.props, item?.props.children)
       })
     })
   )
