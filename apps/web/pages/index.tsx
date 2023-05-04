@@ -42,12 +42,21 @@ const Author = ({ name, picture }) => {
 const components = {
   Author,
 }
+const comps = {
+  Author: ({ name }) => <h3 style={{ color: 'blue' }}>{name}</h3>,
+}
 export default function Web({ sections }) {
   return (
     <CheerfulProvider components={components}>
       <>
-        <h1>Title</h1>
+        <h1>Parent</h1>
         {sections}
+        <CheerfulProvider components={comps}>
+          <>
+            <h1>Child</h1>
+            {sections}
+          </>
+        </CheerfulProvider>
       </>
     </CheerfulProvider>
   )
