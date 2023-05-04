@@ -11,6 +11,7 @@ import {
   Options,
 } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
+import { embeddedEntry } from './utils/embeddedEntry'
 
 export const CheerfulContext = createContext({})
 
@@ -34,14 +35,6 @@ interface ICheerfulProvider {
   children?: ReactNode | ReactNode[]
   disableParentContext?: boolean
 }
-//TODO add types and possibly children???
-const embeddedEntry =
-  (components) =>
-  ({ data }) => {
-    const Component = components[data.target.fields.type]
-    if (!Component) return null
-    return <Component {...data.target.fields} />
-  }
 
 export function CheerfulProvider({
   components,

@@ -10,21 +10,35 @@ const client = createClient({
 
 const Author = ({ name, picture }) => {
   return (
-    <div>
-      <h4>{name}</h4>
+    <div
+      style={{
+        border: '1px solid black',
+        padding: '16px',
+        borderRadius: 5,
+        display: 'grid',
+        gridTemplateColumns: '75px 200px',
+        gap: 16,
+        width: 300,
+      }}
+    >
       <img
         style={{
           objectFit: 'cover',
           objectPosition: 'center',
           width: 75,
           height: 75,
+          borderRadius: 9999,
         }}
         src={picture.fields.file.url}
       />
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <h4>{name}</h4>
+      </div>
     </div>
   )
 }
-
+// an object of Components that will be rendered
+// for the coresponding contentful types
 const components = {
   Author,
 }
