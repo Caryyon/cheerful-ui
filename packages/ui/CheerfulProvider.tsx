@@ -1,5 +1,17 @@
-import { createElement, createContext, useContext, useMemo } from 'react'
+import {
+  createElement,
+  createContext,
+  useContext,
+  useMemo,
+  Children,
+} from 'react'
 import type { ReactNode } from 'react'
+import {
+  documentToReactComponents,
+  Options,
+} from '@contentful/rich-text-react-renderer'
+import { BLOCKS, Document } from '@contentful/rich-text-types'
+import { embeddedEntry } from './utils/embeddedEntry'
 
 export const CheerfulContext = createContext({})
 
@@ -18,7 +30,7 @@ export function useCheerfulComponents(components: any) {
 
 const emptyObject = {}
 
-interface ICheerfulProvider {
+export interface ICheerfulProvider {
   components?: unknown
   children?: ReactNode | ReactNode[]
   disableParentContext?: boolean
@@ -27,12 +39,9 @@ interface ICheerfulProvider {
 export function CheerfulProvider({
   components,
   children,
-  disableParentContext,
+  disableParentContext = false,
 }: ICheerfulProvider) {
   let allComponents
-  console.log(components)
-  console.log(children)
-  console.log(disableParentContext)
 
   if (disableParentContext) {
     allComponents =
@@ -43,9 +52,27 @@ export function CheerfulProvider({
     allComponents = useCheerfulComponents(components)
   }
 
+  //TODO: allow a configuration for this to end user
+  const options: Options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ENTRY]: embeddedEntry(allComponents),
+    },
+  }
   return createElement(
     CheerfulContext.Provider,
     { value: allComponents },
-    children
+    Children.map(children, (child) => {
+      //TODO make the proper checks
+      //@ts-ignore
+      return child?.props.children.map((item) => {
+        if (item.length) {
+          return item.map(
+            ({ fields: { content } }: { fields: { content: Document } }) =>
+              documentToReactComponents(content, options)
+          )
+        }
+        return createElement(item?.type, item?.props, item?.props.children)
+      })
+    })
   )
 }
