@@ -63,6 +63,7 @@ export function CheerfulProvider({
     { value: allComponents },
     Children.map(children, (child) => {
       //TODO make the proper checks
+      //@ts-ignore
       return child?.props.children.map((item) => {
         if (item.length) {
           return item.map(

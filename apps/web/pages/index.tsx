@@ -1,5 +1,6 @@
 import { CheerfulProvider } from 'ui'
 import { createClient } from 'contentful'
+import Image from 'next/image'
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -21,15 +22,16 @@ const Author = ({ name, picture }) => {
         width: 300,
       }}
     >
-      <img
+      <Image
+        alt={name}
+        width={75}
+        height={75}
         style={{
           objectFit: 'cover',
           objectPosition: 'center',
-          width: 75,
-          height: 75,
           borderRadius: 9999,
         }}
-        src={picture.fields.file.url}
+        src={`https:${picture.fields.file.url}`}
       />
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <h4>{name}</h4>
