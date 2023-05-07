@@ -36,4 +36,4 @@ yarn-error.log*
 .vercel
 
 # packages
-packages/ui/dist
+dist
