@@ -1,13 +1,13 @@
-import { CheerfulProvider } from 'ui'
-import { createClient } from 'contentful'
-import Image from 'next/image'
+import { CheerfulProvider } from 'ui';
+import { createClient } from 'contentful';
+import Image from 'next/image';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_KEY,
   host: 'preview.contentful.com',
   environment: 'master',
-})
+});
 
 const Author = ({ name, picture }) => {
   return (
@@ -37,38 +37,23 @@ const Author = ({ name, picture }) => {
         <h4>{name}</h4>
       </div>
     </div>
-  )
-}
+  );
+};
 // an object of Components that will be rendered
 // for the coresponding contentful types
 const components = {
   Author,
-}
-const comps = {
-  Author: ({ name }) => <h3 style={{ color: 'blue' }}>{name}</h3>,
-}
+};
+
 export default function Web({ sections }) {
-  return (
-    <CheerfulProvider components={components}>
-      <>
-        <h1>Parent</h1>
-        {sections}
-        <CheerfulProvider components={comps}>
-          <>
-            <h1>Child</h1>
-            {sections}
-          </>
-        </CheerfulProvider>
-      </>
-    </CheerfulProvider>
-  )
+  return <CheerfulProvider components={components} sections={sections} />;
 }
 
 export const getServerSideProps = async (ctx) => {
-  const { items: sections } = await client.getEntries()
+  const { items: sections } = await client.getEntries();
   return {
     props: {
       sections,
     },
-  }
-}
+  };
+};

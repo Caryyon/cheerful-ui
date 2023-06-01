@@ -32,6 +32,7 @@ const emptyObject = {}
 
 export interface ICheerfulProvider {
   components?: unknown
+  sections?: any[]
   children?: ReactNode | ReactNode[]
   disableParentContext?: boolean
 }
