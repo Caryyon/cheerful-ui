@@ -5,6 +5,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "clean": "turbo clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
@@ -16,7 +17,7 @@
     "eslint-config-custom": "workspace:0.0.0",
     "prettier": "^2.5.1",
     "tsup": "^6.7.0",
-    "turbo": "latest"
+    "turbo": "^1.10.1"
   },
   "packageManager": "pnpm@7.15.0"
 }
