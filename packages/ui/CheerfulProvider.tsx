@@ -4,7 +4,7 @@ import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, Document, Node } from '@contentful/rich-text-types';
+import { BLOCKS, Document } from '@contentful/rich-text-types';
 import { embeddedEntry } from './utils/embeddedEntry';
 
 export const CheerfulContext = createContext({});
@@ -42,7 +42,7 @@ export interface Section {
 export function CheerfulProvider({
   components,
   sections,
-  children, //TODO handle a way to pass in children and apply parent styles
+  //children, TODO handle a way to pass in children and apply parent styles
   disableParentContext = false,
 }: ICheerfulProvider) {
   let allComponents;

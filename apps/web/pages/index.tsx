@@ -13,13 +13,16 @@ const Author = ({ name, picture }) => {
   return (
     <div
       style={{
-        border: '1px solid black',
-        padding: '16px',
+        border: '2px solid #2d3436',
+        backgroundColor: '#a29bfe',
+        padding: 16,
         borderRadius: 5,
         display: 'grid',
-        gridTemplateColumns: '75px 200px',
+        gridTemplateColumns: '75px 125px',
         gap: 16,
         width: 300,
+        fontFamily: 'sans-serif',
+        color: '#55efc4'
       }}
     >
       <Image
@@ -30,11 +33,12 @@ const Author = ({ name, picture }) => {
           objectFit: 'cover',
           objectPosition: 'center',
           borderRadius: 9999,
+          border: '4px solid #55efc4'
         }}
         src={`https:${picture.fields.file.url}`}
       />
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <h4>{name}</h4>
+        <h3>{name}</h3>
       </div>
     </div>
   );
