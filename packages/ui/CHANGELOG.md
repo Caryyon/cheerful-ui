@@ -1,5 +1,11 @@
 # ui
 
+## 2.0.0
+
+### Major Changes
+
+- 5a91507: fixes a pipeline issue
+
 ## 1.0.0
 
 ### Major Changes
