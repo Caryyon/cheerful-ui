@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@cheerful-ui/web",
   "version": "1.0.2",
   "private": true,
   "scripts": {
@@ -16,14 +16,14 @@
     "next": "13.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui": "workspace:*"
+    "@cheerful-ui/ui": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
-    "eslint-config-custom": "workspace:*",
-    "tsconfig": "workspace:*",
+    "@cheerful-ui/eslint-config-custom": "workspace:*",
+    "@cheerful-ui/tsconfig": "workspace:*",
     "typescript": "^4.5.3"
   }
 }

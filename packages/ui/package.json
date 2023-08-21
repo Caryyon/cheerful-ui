@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "@cheerful-ui/ui",
   "version": "2.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -13,9 +13,9 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "eslint": "^7.32.0",
-    "eslint-config-custom": "workspace:*",
+    "@cheerful-ui/eslint-config-custom": "workspace:*",
     "react": "^18.2.0",
-    "tsconfig": "workspace:*",
+    "@cheerful-ui/tsconfig": "workspace:*",
     "tsup": "^6.7.0",
     "typescript": "^4.5.2"
   },

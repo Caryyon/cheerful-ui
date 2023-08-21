@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-custom",
+  "name": "@cheerful-ui/eslint-config-custom",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
