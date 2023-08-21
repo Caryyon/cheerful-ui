@@ -1,5 +1,11 @@
 # ui
 
+## 3.0.0
+
+### Major Changes
+
+- 279fc81: updates for scope
+
 ## 2.0.0
 
 ### Major Changes
