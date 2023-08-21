@@ -1,5 +1,16 @@
 # docs
 
+## 2.0.0
+
+### Major Changes
+
+- 279fc81: updates for scope
+
+### Patch Changes
+
+- Updated dependencies [279fc81]
+  - @cheerful-ui/ui@3.0.0
+
 ## 1.0.2
 
 ### Patch Changes
