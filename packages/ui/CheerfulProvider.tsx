@@ -57,6 +57,7 @@ export function CheerfulProvider({
   }
 
   //TODO: allow a configuration for this to end user
+  // need to expose options
   const options: Options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ENTRY]: embeddedEntry(allComponents),
