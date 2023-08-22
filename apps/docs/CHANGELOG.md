@@ -1,5 +1,12 @@
 # docs
 
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies [35b011a]
+  - @cheerful-ui/ui@4.0.0
+
 ## 2.0.0
 
 ### Major Changes
